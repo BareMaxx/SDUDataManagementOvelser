@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8e4a580-56e1-447c-92ff-d3634389c0fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/c84abf13-00b6-42ae-a44b-a0bfc918e841.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/c84abf13-00b6-42ae-a44b-a0bfc918e841.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/c84abf13-00b6-42ae-a44b-a0bfc918e841/storage_v2/_src_/database/DM07.UBAgAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/c84abf13-00b6-42ae-a44b-a0bfc918e841/storage_v2/_src_/database/DM07.UBAgAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +31,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -86,8 +82,23 @@
       <option name="presentableId" value="Default" />
       <updated>1584552540662</updated>
       <workItem from="1584552544597" duration="1506000" />
-      <workItem from="1616072812409" duration="1151000" />
+      <workItem from="1616072812409" duration="2319000" />
     </task>
+    <task id="LOCAL-00001" summary="add employee">
+      <created>1616074229655</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616074229655</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add employee">
+      <created>1616074265741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616074265741</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,5 +114,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add employee" />
+    <option name="LAST_COMMIT_MESSAGE" value="add employee" />
   </component>
 </project>

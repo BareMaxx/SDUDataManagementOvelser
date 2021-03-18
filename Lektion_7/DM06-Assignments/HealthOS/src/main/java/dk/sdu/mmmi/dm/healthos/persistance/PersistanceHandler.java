@@ -110,12 +110,34 @@ public class PersistanceHandler implements IPersistanceHandler{
 
     @Override
     public List<Patient> getPatients() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM patients");
+            ResultSet result = stmt.executeQuery();
+            List<Patient> patients = new ArrayList<>();
+            while (result.next()) {
+                patients.add(new Patient(result.getInt("id"), result.getString("name"), result.getString("phone"), result.getString("cpr_number")));
+            }
+            return patients;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public Patient getPatient(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM patients WHERE id = ?");
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
+            if (!result.next()){
+                return null;
+            }
+            return new Patient(result.getInt("id"), result.getString("name"), result.getString("phone"), result.getString("cpr_number"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
