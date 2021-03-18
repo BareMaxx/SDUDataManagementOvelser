@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.dm.healthos.presentation;
 
+import dk.sdu.mmmi.dm.healthos.domain.Employee;
 import dk.sdu.mmmi.dm.healthos.domain.IPersistanceHandler;
 import dk.sdu.mmmi.dm.healthos.persistance.PersistanceHandler;
 import java.util.Arrays;
@@ -23,6 +24,24 @@ public class Main {
         try(Scanner s = new Scanner(System.in)){
             while(running) {
                 switch(s.nextLine().toLowerCase()) {
+                    case "addemployee":
+                        System.out.println("What is the employees ID?");
+                        int ID = s.nextInt();
+                        System.out.println("What is the employees name?");
+                        String name = s.next();
+                        System.out.println("What is the employees phone number?");
+                        int phone = s.nextInt();
+                        System.out.println("What is the employees position ID?");
+                        int position = s.nextInt();
+                        System.out.println("What is the employees department ID?");
+                        int department = s.nextInt();
+                        System.out.println("What is the employees room ID?");
+                        int room = s.nextInt();
+                        if(persistanceHandler.createEmployee(new Employee(ID, name, phone, position, department, room))) {
+                            System.out.println("Employee successfully created");
+                        } else {
+                            System.out.println("Employee could not be created");
+                        }
                     case "getemployees":
                         System.out.println(persistanceHandler.getEmployees());
                         break;
