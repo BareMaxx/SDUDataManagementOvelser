@@ -6,6 +6,7 @@ import dk.sdu.mmmi.dm.healthos.domain.Admission;
 import dk.sdu.mmmi.dm.healthos.domain.Bed;
 import dk.sdu.mmmi.dm.healthos.domain.IPersistanceHandler;
 
+import javax.xml.transform.Result;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
@@ -143,45 +144,128 @@ public class PersistanceHandler implements IPersistanceHandler{
     @Override
     public boolean createPatient(Patient patient) {
         //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO patients (id, name, phone, cpr) VALUES (?, ?, ?, ?)");
+            stmt.setInt(1, patient.getId());
+            stmt.setString(2, patient.getName());
+            stmt.setString(3, patient.getPhone());
+            stmt.setString(4, patient.getCPR());
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public List<Bed> getBeds() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM beds");
+            ResultSet result = stmt.executeQuery();
+            List<Bed> beds = new ArrayList<>();
+            while (result.next()) {
+                beds.add(new Bed(result.getInt("id"), result.getString("bed_number")));
+            }
+            return beds;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public Bed getBed(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM beds");
+            ResultSet result = stmt.executeQuery();
+            if (!result.next()) {
+                return null;
+            }
+            return new Bed(result.getInt("id"), result.getString("bed_number"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public boolean createBed(Bed bed) {
         //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO beds (id, bed_number) VALUES (?, ?)");
+            stmt.setInt(1, bed.getID());
+            stmt.setString(2, bed.getBedNumber());
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public List<Admission> getAdmissions() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM admissions");
+            ResultSet result = stmt.executeQuery();
+            List<Admission> admissions = new ArrayList<>();
+            while (result.next()) {
+                admissions.add(new Admission(result.getInt("id"), result.getInt("patient_id"), result.getInt("room_id"), result.getInt("bed_id"), result.getInt("assigned_employee_id")));
+            }
+            return admissions;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public Admission getAdmission(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM admissions WHERE id = ?");
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
+            if (!result.next()) {
+                return null;
+            }
+            return new Admission(result.getInt("id"), result.getInt("patient_id"), result.getInt("room_id"), result.getInt("bed_id"), result.getInt("assigned_employee_id"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public boolean createAdmission(Admission admission) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO admissions (id, patient_id, room_id, bed_id, assigned_employee_id) VALUES (?, ?, ?, ?, ?)" );
+            stmt.setInt(1, admission.getId());
+            stmt.setInt(2, admission.getPatientId());
+            stmt.setInt(3, admission.getRoomId());
+            stmt.setInt(4, admission.getBedId());
+            stmt.setInt(5, admission.getAssignedEmployeeId());
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
         //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public boolean deleteAdmission(int id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM admissions WHERE id = ?");
+            stmt.setInt(1, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
         //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private String getPassword() {
