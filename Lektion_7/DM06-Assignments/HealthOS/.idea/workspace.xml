@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8e4a580-56e1-447c-92ff-d3634389c0fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Admission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Admission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Bed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Bed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/domain/Admission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/domain/Admission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/domain/Bed.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/domain/Bed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dk/sdu/mmmi/dm/healthos/presentation/Main.class" afterDir="false" />
-    </list>
+    <list default="true" id="e8e4a580-56e1-447c-92ff-d3634389c0fc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584552540662</updated>
       <workItem from="1584552544597" duration="1506000" />
-      <workItem from="1616072812409" duration="5404000" />
+      <workItem from="1616072812409" duration="5481000" />
     </task>
     <task id="LOCAL-00001" summary="add employee">
       <created>1616074229655</created>
@@ -119,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616075257908</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="COMPLETED THIS SHIT SHOW">
+      <created>1616078251037</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616078251037</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +136,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add employee" />
     <MESSAGE value="getpatients" />
-    <option name="LAST_COMMIT_MESSAGE" value="getpatients" />
+    <MESSAGE value="COMPLETED THIS SHIT SHOW" />
+    <option name="LAST_COMMIT_MESSAGE" value="COMPLETED THIS SHIT SHOW" />
   </component>
 </project>
