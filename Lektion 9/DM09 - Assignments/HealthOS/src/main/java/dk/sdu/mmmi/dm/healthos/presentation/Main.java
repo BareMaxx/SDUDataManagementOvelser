@@ -1,8 +1,6 @@
 package dk.sdu.mmmi.dm.healthos.presentation;
 
-import dk.sdu.mmmi.dm.healthos.domain.Employee;
-import dk.sdu.mmmi.dm.healthos.domain.IPersistanceHandler;
-import dk.sdu.mmmi.dm.healthos.domain.Patient;
+import dk.sdu.mmmi.dm.healthos.domain.*;
 import dk.sdu.mmmi.dm.healthos.persistance.PersistanceHandler;
 import org.bson.types.ObjectId;
 
@@ -82,23 +80,58 @@ public class Main {
                         }
                         break;
                     case "getbeds":
-                        System.out.println(persistanceHandler.getBeds());
+                        for (Bed bed : persistanceHandler.getBeds()) {
+                            System.out.println(bed);
+                        }
                         break;
                     case "getbed":
                         System.out.println("What is the bed ID?");
+                        System.out.println(persistanceHandler.getBed(Integer.parseInt(s.nextLine())));
                         break;
                     case "createbed":
+                        String bedName = Bed.class.getSimpleName().toLowerCase();
+                        Bed bed = new Bed();
+                        generateMessage("id", bedName);
+                        bed.setId(Integer.parseInt(s.nextLine()));
+                        generateMessage("bed number", bedName);
+                        bed.setBed_number(s.nextLine());
+                        if(persistanceHandler.createBed(bed)) {
+                            System.out.println("Bed has been inserted in the database");
+                        } else {
+                            System.out.println("Could not insert bed, try again and check that the id is available");
+                        }
                         break;
                     case "getadmissions":
-                        System.out.println(persistanceHandler.getAdmissions());
+                        for(Admission admission : persistanceHandler.getAdmissions()) {
+                            System.out.println(admission);
+                        }
                         break;
                     case "getadmission":
                         System.out.println("What is the admission ID?");
+                        System.out.println(persistanceHandler.getAdmission(Integer.parseInt(s.nextLine())));
                         break;
                     case "createadmission":
+                        String adm = Admission.class.getSimpleName().toLowerCase();
+                        Admission admission = new Admission();
+                        generateMessage("id", adm);
+                        admission.setId(Integer.parseInt(s.nextLine()));
+                        generateMessage("patient id", adm);
+                        admission.setPatient_id(Integer.parseInt(s.nextLine()));
+                        generateMessage("room id", adm);
+                        admission.setRoom_id(Integer.parseInt(s.nextLine()));
+                        generateMessage("bed id", adm);
+                        admission.setBed_id(Integer.parseInt(s.nextLine()));
+                        generateMessage("assigned employee id", adm);
+                        admission.setAssigned_employee_id(Integer.parseInt(s.nextLine()));
+                        if(persistanceHandler.createAdmission(admission)) {
+                            System.out.println("Admission has been inserted in the database");
+                        } else {
+                            System.out.println("Could not insert admission, try again and check that the id is available");
+                        }
                         break;
                     case "deleteadmission":
                         System.out.println("What is the admission ID?");
+                        persistanceHandler.deleteAdmission(Integer.parseInt(s.nextLine()));
                         break;
                     case "exit":
                         running = false;

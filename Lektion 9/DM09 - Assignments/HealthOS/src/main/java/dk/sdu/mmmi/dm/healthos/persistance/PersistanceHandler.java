@@ -106,39 +106,55 @@ public class PersistanceHandler implements IPersistanceHandler {
 
     @Override
     public List<Bed> getBeds() {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Bed> mongoCollection = database.getCollection("beds", Bed.class);
+        return mongoCollection.find().into(new ArrayList<>());
     }
 
     @Override
     public Bed getBed(int id) {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Bed> mongoCollection = database.getCollection("beds", Bed.class);
+        return mongoCollection.find(Filters.eq("_id", id)).first();
     }
 
     @Override
     public boolean createBed(Bed bed) {
-        //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("This operation is not supported...");
+        try {
+            MongoCollection<Bed> mongoCollection = database.getCollection("beds", Bed.class);
+            mongoCollection.insertOne(bed);
+        } catch (MongoWriteException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public List<Admission> getAdmissions() {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Admission> mongoCollection = database.getCollection("admissions", Admission.class);
+        return mongoCollection.find().into(new ArrayList<>());
     }
 
     @Override
     public Admission getAdmission(int id) {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Admission> mongoCollection = database.getCollection("admissions", Admission.class);
+        return mongoCollection.find(Filters.eq("_id", id)).first();
     }
 
     @Override
     public boolean createAdmission(Admission admission) {
-        //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("This operation is not supported...");
+        try {
+            MongoCollection<Admission> mongoCollection = database.getCollection("admissions", Admission.class);
+            mongoCollection.insertOne(admission);
+        } catch (MongoWriteException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public boolean deleteAdmission(int id) {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Admission> mongoCollection = database.getCollection("admissions", Admission.class);
+        mongoCollection.deleteOne(Filters.eq("_id", id));
+        return true;
     }
 
 }
