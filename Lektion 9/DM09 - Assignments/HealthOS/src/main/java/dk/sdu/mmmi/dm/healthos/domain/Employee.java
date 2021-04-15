@@ -9,7 +9,7 @@ import org.bson.types.ObjectId;
 
 public class Employee {
 
-    private ObjectId id;
+    private int id;
     private String name;
     private int phone;
     private int position_id;
@@ -27,11 +27,11 @@ public class Employee {
     public Employee() {
     }
 
-    public ObjectId getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(int id) {
         this.id = id;
     }
 

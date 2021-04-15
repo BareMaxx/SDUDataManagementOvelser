@@ -11,27 +11,27 @@ public interface IPersistanceHandler {
 
     public List<Employee> getEmployees();
 
-    public Employee getEmployee(ObjectId id);
+    public Employee getEmployee(int id);
 
     public boolean createEmployee(Employee employee);
 
     public List<Patient> getPatients();
 
-    public Patient getPatient(ObjectId id);
+    public Patient getPatient(int id);
 
     public boolean createPatient(Patient patient);
 
     public List<Bed> getBeds();
 
-    public Bed getBed(ObjectId id);
+    public Bed getBed(int id);
 
     public boolean createBed(Bed bed);
 
     public List<Admission> getAdmissions();
 
-    public Admission getAdmission(ObjectId id);
+    public Admission getAdmission(int id);
 
     public boolean createAdmission(Admission admission);
 
-    public boolean deleteAdmission(ObjectId id);
+    public boolean deleteAdmission(int id);
 }

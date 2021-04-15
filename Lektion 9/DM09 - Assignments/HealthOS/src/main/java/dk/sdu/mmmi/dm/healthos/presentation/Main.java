@@ -31,7 +31,7 @@ public class Main {
                         break;
                     case "getemployee":
                         System.out.println("What is the employee ID?");
-                        System.out.println(persistanceHandler.getEmployee(new ObjectId(s.nextLine())));
+                        System.out.println(persistanceHandler.getEmployee(s.nextInt()));
                         break;
                     case "createemployee":
                         String emp = Employee.class.getSimpleName().toLowerCase();

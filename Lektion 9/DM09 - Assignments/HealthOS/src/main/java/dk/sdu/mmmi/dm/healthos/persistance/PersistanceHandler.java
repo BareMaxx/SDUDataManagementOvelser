@@ -25,7 +25,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 public class PersistanceHandler implements IPersistanceHandler {
     private static final String URL = "localhost";
     private static final int PORT = 27017;
-    private static final String DATABASE_NAME = "database";
+    private static final String DATABASE_NAME = "HealthOS";
     private static PersistanceHandler instance;
     private MongoDatabase database;
 
@@ -62,9 +62,9 @@ public class PersistanceHandler implements IPersistanceHandler {
     }
 
     @Override
-    public Employee getEmployee(ObjectId id) {
+    public Employee getEmployee(int id) {
         MongoCollection<Employee> mongoCollection = database.getCollection("employees", Employee.class);
-        return mongoCollection.find(Filters.eq("_id", new ObjectId(String.valueOf(id)))).first();
+        return mongoCollection.find(Filters.eq("_id", id)).first();
     }
 
     @Override
@@ -85,7 +85,7 @@ public class PersistanceHandler implements IPersistanceHandler {
     }
 
     @Override
-    public Patient getPatient(ObjectId id) {
+    public Patient getPatient(int id) {
         throw new UnsupportedOperationException("This operation is not supported...");
     }
 
@@ -101,7 +101,7 @@ public class PersistanceHandler implements IPersistanceHandler {
     }
 
     @Override
-    public Bed getBed(ObjectId id) {
+    public Bed getBed(int id) {
         throw new UnsupportedOperationException("This operation is not supported...");
     }
 
@@ -117,7 +117,7 @@ public class PersistanceHandler implements IPersistanceHandler {
     }
 
     @Override
-    public Admission getAdmission(ObjectId id) {
+    public Admission getAdmission(int id) {
         throw new UnsupportedOperationException("This operation is not supported...");
     }
 
@@ -128,7 +128,7 @@ public class PersistanceHandler implements IPersistanceHandler {
     }
 
     @Override
-    public boolean deleteAdmission(ObjectId id) {
+    public boolean deleteAdmission(int id) {
         throw new UnsupportedOperationException("This operation is not supported...");
     }
 
