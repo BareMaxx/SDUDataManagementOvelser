@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\maxx0\OneDrive - Syddansk Universitet\2.Semester\DM\Ovelser\SDUDataManagementOvelser\MongoDBDemo\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
