@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8e4a580-56e1-447c-92ff-d3634389c0fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongo_java_driver_3_12_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongo_java_driver_3_12_8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthOS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HealthOS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/domain/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/persistance/PersistanceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/sdu/mmmi/dm/healthos/presentation/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,8 +213,16 @@
       <workItem from="1584599447533" duration="8024000" />
       <workItem from="1585138638028" duration="4113000" />
       <workItem from="1585243102743" duration="12660000" />
-      <workItem from="1618479998362" duration="1600000" />
+      <workItem from="1618479998362" duration="3788000" />
     </task>
+    <task id="LOCAL-00001" summary="Changed from ObjectID to int to prevent needing to add all the data again">
+      <created>1618483167538</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618483167538</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,5 +238,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changed from ObjectID to int to prevent needing to add all the data again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed from ObjectID to int to prevent needing to add all the data again" />
   </component>
 </project>

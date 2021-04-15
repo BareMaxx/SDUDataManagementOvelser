@@ -1,6 +1,7 @@
 package dk.sdu.mmmi.dm.healthos.domain;
 
 import com.google.gson.Gson;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
 /**
@@ -8,7 +9,7 @@ import org.bson.types.ObjectId;
  */
 
 public class Employee {
-
+    @BsonProperty("_id")
     private int id;
     private String name;
     private int phone;
@@ -16,7 +17,8 @@ public class Employee {
     private int department_id;
     private int room_id;
 
-    public Employee(String name, int phone, int position_id, int department_id, int room_id) {
+    public Employee(int id, String name, int phone, int position_id, int department_id, int room_id) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.position_id = position_id;

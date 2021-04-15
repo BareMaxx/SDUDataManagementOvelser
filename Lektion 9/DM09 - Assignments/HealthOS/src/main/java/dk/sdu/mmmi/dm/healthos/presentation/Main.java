@@ -2,10 +2,14 @@ package dk.sdu.mmmi.dm.healthos.presentation;
 
 import dk.sdu.mmmi.dm.healthos.domain.Employee;
 import dk.sdu.mmmi.dm.healthos.domain.IPersistanceHandler;
+import dk.sdu.mmmi.dm.healthos.domain.Patient;
 import dk.sdu.mmmi.dm.healthos.persistance.PersistanceHandler;
 import org.bson.types.ObjectId;
 
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Oliver Nordestgaard | olnor18
@@ -13,6 +17,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Logger.getLogger("").setLevel(Level.WARNING);
         System.out.println(
                 "------------------------------------------\n"
                         + "WELCOME TO HealthOS\n"
@@ -31,11 +36,13 @@ public class Main {
                         break;
                     case "getemployee":
                         System.out.println("What is the employee ID?");
-                        System.out.println(persistanceHandler.getEmployee(s.nextInt()));
+                        System.out.println(persistanceHandler.getEmployee(Integer.parseInt(s.nextLine())));
                         break;
                     case "createemployee":
                         String emp = Employee.class.getSimpleName().toLowerCase();
                         Employee employee = new Employee();
+                        generateMessage("id", emp);
+                        employee.setId(Integer.parseInt(s.nextLine()));
                         generateMessage("name", emp);
                         employee.setName(s.nextLine());
                         generateMessage("phone", emp);
@@ -49,12 +56,30 @@ public class Main {
                         persistanceHandler.createEmployee(employee);
                         break;
                     case "getpatients":
-                        System.out.println(persistanceHandler.getPatients());
+                        for (Patient patient : persistanceHandler.getPatients()) {
+                            System.out.println(patient);
+                        }
                         break;
                     case "getpatient":
                         System.out.println("What is the patient ID?");
+                        System.out.println(persistanceHandler.getPatient(Integer.parseInt(s.nextLine())));
                         break;
                     case "createpatient":
+                        String pat = Patient.class.getSimpleName().toLowerCase();
+                        Patient patient = new Patient();
+                        generateMessage("id", pat);
+                        patient.setId(Integer.parseInt(s.nextLine()));
+                        generateMessage("name", pat);
+                        patient.setName(s.nextLine());
+                        generateMessage("phone", pat);
+                        patient.setPhone(Integer.parseInt(s.nextLine()));
+                        generateMessage("CPR number", pat);
+                        patient.setCpr_number(s.nextLine());
+                        if(persistanceHandler.createPatient(patient)) {
+                            System.out.println("Patient has been inserted in the database");
+                        } else {
+                            System.out.println("Could not insert patient, try again and check that the id is available");
+                        }
                         break;
                     case "getbeds":
                         System.out.println(persistanceHandler.getBeds());

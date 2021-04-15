@@ -1,7 +1,9 @@
 package dk.sdu.mmmi.dm.healthos.persistance;
 
 import com.mongodb.ConnectionString;
+import com.mongodb.DuplicateKeyException;
 import com.mongodb.MongoClientSettings;
+import com.mongodb.MongoWriteException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -10,7 +12,6 @@ import com.mongodb.client.model.Filters;
 import dk.sdu.mmmi.dm.healthos.domain.*;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
-import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,30 +70,38 @@ public class PersistanceHandler implements IPersistanceHandler {
 
     @Override
     public boolean createEmployee(Employee employee) {
-        MongoCollection<Employee> mongoCollection = database.getCollection("employees", Employee.class);
-        mongoCollection.insertOne(employee);
+        try {
+            MongoCollection<Employee> mongoCollection = database.getCollection("employees", Employee.class);
+            mongoCollection.insertOne(employee);
+        } catch (MongoWriteException e) {
+            System.out.println("Could not insert employee, try again and check that the id is available");
+            return false;
+        }
         return true;
     }
 
-    /*
-    Implement all of the following. Beware that the model classes are as of yet not properly implemented
-    */
-
-
     @Override
     public List<Patient> getPatients() {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Patient> mongoCollection = database.getCollection("patients", Patient.class);
+        return mongoCollection.find().into(new ArrayList<>());
     }
 
     @Override
     public Patient getPatient(int id) {
-        throw new UnsupportedOperationException("This operation is not supported...");
+        MongoCollection<Patient> mongoCollection = database.getCollection("patients", Patient.class);
+        return mongoCollection.find(Filters.eq("_id", id)).first();
     }
 
     @Override
     public boolean createPatient(Patient patient) {
         //make HealthOS support this action in the presentation layer too.
-        throw new UnsupportedOperationException("This operation is not supported...");
+        try {
+            MongoCollection<Patient> mongoCollection = database.getCollection("patients", Patient.class);
+            mongoCollection.insertOne(patient);
+        } catch (MongoWriteException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
